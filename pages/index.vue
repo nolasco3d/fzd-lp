@@ -1,5 +1,11 @@
 <template>
-  <Tutorial />
+  <div>
+    <LayoutComponent>
+      <template #content>
+        <BannerHero />
+      </template>
+    </LayoutComponent>
+  </div>
 </template>
 
 <script>
