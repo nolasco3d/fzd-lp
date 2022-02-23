@@ -2,15 +2,30 @@
   <LayoutComponent>
     <template #content>
       <BannerHero />
-      <div class="product--grid">
-        <template v-for="(product, index) in products">
-          <div :key="`product-${index}`" class="product--card">
-            <h4>{{ product.name }}</h4>
-            <p>{{ product.desc }}</p>
-            <span>{{ product.price }}</span>
+      <div class="step--grid">
+        <template v-for="(step, index) in steps">
+          <div :key="`step-${index}`" class="step--card">
+            <i class="flex-1" :class="step.icon">i</i>
+            <div class="step--card--textbox">
+              <h4>{{ step.name }}</h4>
+              <p>{{ step.description }}</p>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- <div class="step--grid">
+        <template v-for="(step, index) in steps">
+          <div :key="`step-${index}`" class="step--card">
+            <h4>{{ step.name }}</h4>
+            <p>{{ step.desc }}</p>
+            <span>{{ step.price }}</span>
             <button>Click</button>
           </div>
         </template>
+      </div> -->
+      <div class="">
+
       </div>
     </template>
   </LayoutComponent>
@@ -21,6 +36,23 @@ export default {
   name: 'IndexPage',
   data() {
     return {
+      steps: [
+        {
+          icon: 'check',
+          name: 'Step name one',
+          description: 'Lorem ipsum dolor sit amet consectetur.'
+        },
+        {
+          icon: 'check',
+          name: 'Step name one',
+          description: 'Lorem ipsum dolor sit amet consectetur.'
+        },
+        {
+          icon: 'check',
+          name: 'Step name one',
+          description: 'Lorem ipsum dolor sit amet consectetur.'
+        }
+      ],
       products: [
         {
           name: 'Prod 1',
@@ -64,6 +96,25 @@ export default {
       border border-gray-200 bg-gray-100 text-gray-600
       rounded rounded-lg
       p-3;
+
+  }
+}
+
+.step {
+  &--grid {
+    @apply grid grid-cols-3 gap-5 p-5;
+  }
+
+  &--card {
+    @apply border border-gray-200 bg-gray-100
+      text-gray-600
+      rounded rounded-lg
+      flex
+      p-3;
+
+    &--textbox {
+    @apply w-3/4;
+    }
   }
 }
 </style>
